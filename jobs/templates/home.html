@@ -8,7 +8,23 @@
 <main>
     <h1>Welcome to Job Portal</h1>
     <h3>Explore Opportunities</h3>
-    {% if jobs_list %}
-        {}
+    {% for job in jobs_list %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{job.role}}</h5>
+            <p class="card-text">Posted By: {{job.company}} | Posted on: {{job.published_on}}</p>
+            <p class="card-text">{{job.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{job.qualification}}</li>
+            <li class="list-group-item">{{job.experience}}</li>
+            <li class="list-group-item">{{job.skills_required}}</li>
+            <li class="list-group-item">{{job.salary}}</li>
+            </ul>
+            <div class="card-body">
+            <a href="#" class="card-link">Apply</a>
+            </div>
+        </div>
+    {% endfor %}
 </main>
 {% endblock content %}
